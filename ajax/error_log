@@ -1,0 +1,29 @@
+[25-Jun-2022 15:53:14 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function json_encode() in /home/factudata/public_html/ajax/login_datos_sat.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/factudata/public_html/ajax/login_datos_sat.php on line 8
+[25-Jun-2022 15:53:18 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function json_encode() in /home/factudata/public_html/ajax/login_datos_sat.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/factudata/public_html/ajax/login_datos_sat.php on line 8
+[27-Jun-2022 16:53:54 UTC] PHP Warning:  file_get_contents(): SSL: Connection reset by peer in /home/factudata/public_html/clases/global_clases_SAT.php on line 221
+[27-Jun-2022 16:53:54 UTC] PHP Warning:  file_get_contents(https://siat.sat.gob.mx/app/qr/faces/pages/mobile/validadorqr.jsf?D1=10&amp;D2=1&amp;D3=18010244598_AALD710129KU2): failed to open stream: HTTP request failed! in /home/factudata/public_html/clases/global_clases_SAT.php on line 221
+[27-Jun-2022 16:53:55 UTC] PHP Warning:  file_get_contents(): SSL: Connection reset by peer in /home/factudata/public_html/clases/global_clases_SAT.php on line 221
+[27-Jun-2022 16:53:55 UTC] PHP Warning:  file_get_contents(https://siat.sat.gob.mx/app/qr/faces/pages/mobile/validadorqr.jsf?D1=10&amp;D2=1&amp;D3=22020506489_MUMO851203IA8): failed to open stream: HTTP request failed! in /home/factudata/public_html/clases/global_clases_SAT.php on line 221
+[27-Jun-2022 16:54:24 UTC] PHP Warning:  file_get_contents(): SSL: Connection reset by peer in /home/factudata/public_html/clases/global_clases_SAT.php on line 221
+[27-Jun-2022 16:54:24 UTC] PHP Warning:  file_get_contents(https://siat.sat.gob.mx/app/qr/faces/pages/mobile/validadorqr.jsf?D1=10&amp;D2=1&amp;D3=18010244598_AALD710129KU2): failed to open stream: HTTP request failed! in /home/factudata/public_html/clases/global_clases_SAT.php on line 221
+[27-Jun-2022 16:54:25 UTC] PHP Warning:  file_get_contents(): SSL: Connection reset by peer in /home/factudata/public_html/clases/global_clases_SAT.php on line 221
+[27-Jun-2022 16:54:25 UTC] PHP Warning:  file_get_contents(https://siat.sat.gob.mx/app/qr/faces/pages/mobile/validadorqr.jsf?D1=10&amp;D2=1&amp;D3=18010244598_AALD710129KU2): failed to open stream: HTTP request failed! in /home/factudata/public_html/clases/global_clases_SAT.php on line 221
+[27-Jun-2022 16:54:25 UTC] PHP Warning:  file_get_contents(): SSL: Connection reset by peer in /home/factudata/public_html/clases/global_clases_SAT.php on line 221
+[27-Jun-2022 16:54:25 UTC] PHP Warning:  file_get_contents(https://siat.sat.gob.mx/app/qr/faces/pages/mobile/validadorqr.jsf?D1=10&amp;D2=1&amp;D3=22020506489_MUMO851203IA8): failed to open stream: HTTP request failed! in /home/factudata/public_html/clases/global_clases_SAT.php on line 221
+[27-Jun-2022 18:13:48 UTC] PHP Notice:  Undefined index: id_usuario in /home/factudata/public_html/clases/global_clases_SAT.php on line 415
+[27-Jun-2022 18:13:48 UTC] PHP Notice:  Undefined index: id_usuario in /home/factudata/public_html/clases/global_clases_SAT.php on line 384
+[27-Jun-2022 18:13:48 UTC] PHP Notice:  Undefined index: id_usuario in /home/factudata/public_html/clases/global_clases_SAT.php on line 386
+[23-Aug-2022 16:38:06 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function json_encode() in /home/factudata/public_html/ajax/login_datos_sat.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/factudata/public_html/ajax/login_datos_sat.php on line 8
+[23-Aug-2022 16:38:39 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function json_encode() in /home/factudata/public_html/ajax/login_datos_sat.php:8
+Stack trace:
+#0 {main}
+  thrown in /home/factudata/public_html/ajax/login_datos_sat.php on line 8

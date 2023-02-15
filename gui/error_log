@@ -1,0 +1,108 @@
+[25-Jun-2022 16:03:38 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in /home/factudata/public_html/clases/global_clases_conexionbdmysql.php:16
+Stack trace:
+#0 /home/factudata/public_html/clases/global_clases_SAT.php(6): DB->__construct()
+#1 /home/factudata/public_html/includes/login.php(9): SAT->login(Array)
+#2 /home/factudata/public_html/gui/index.php(4): include_once('/home/factudata...')
+#3 {main}
+  thrown in /home/factudata/public_html/clases/global_clases_conexionbdmysql.php on line 16
+[25-Jun-2022 16:04:21 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in /home/factudata/public_html/clases/global_clases_conexionbdmysql.php:16
+Stack trace:
+#0 /home/factudata/public_html/clases/global_clases_SAT.php(6): DB->__construct()
+#1 /home/factudata/public_html/includes/login.php(9): SAT->login(Array)
+#2 /home/factudata/public_html/gui/index.php(4): include_once('/home/factudata...')
+#3 {main}
+  thrown in /home/factudata/public_html/clases/global_clases_conexionbdmysql.php on line 16
+[25-Jun-2022 16:11:39 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in /home/factudata/public_html/clases/global_clases_conexionbdmysql.php:16
+Stack trace:
+#0 /home/factudata/public_html/clases/global_clases_SAT.php(6): DB->__construct()
+#1 /home/factudata/public_html/includes/login.php(9): SAT->login(Array)
+#2 /home/factudata/public_html/gui/index.php(4): include_once('/home/factudata...')
+#3 {main}
+  thrown in /home/factudata/public_html/clases/global_clases_conexionbdmysql.php on line 16
+[25-Jun-2022 16:11:46 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in /home/factudata/public_html/clases/global_clases_conexionbdmysql.php:16
+Stack trace:
+#0 /home/factudata/public_html/clases/global_clases_SAT.php(6): DB->__construct()
+#1 /home/factudata/public_html/includes/login.php(9): SAT->login(Array)
+#2 /home/factudata/public_html/gui/index.php(4): include_once('/home/factudata...')
+#3 {main}
+  thrown in /home/factudata/public_html/clases/global_clases_conexionbdmysql.php on line 16
+[27-Jun-2022 15:14:50 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in /home/factudata/public_html/clases/global_clases_conexionbdmysql.php:16
+Stack trace:
+#0 /home/factudata/public_html/clases/global_clases_SAT.php(6): DB->__construct()
+#1 /home/factudata/public_html/includes/login.php(9): SAT->login(Array)
+#2 /home/factudata/public_html/gui/index.php(4): include_once('/home/factudata...')
+#3 {main}
+  thrown in /home/factudata/public_html/clases/global_clases_conexionbdmysql.php on line 16
+[27-Jun-2022 15:15:36 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in /home/factudata/public_html/clases/global_clases_conexionbdmysql.php:16
+Stack trace:
+#0 /home/factudata/public_html/clases/global_clases_SAT.php(6): DB->__construct()
+#1 /home/factudata/public_html/includes/login.php(9): SAT->login(Array)
+#2 /home/factudata/public_html/gui/index.php(4): include_once('/home/factudata...')
+#3 {main}
+  thrown in /home/factudata/public_html/clases/global_clases_conexionbdmysql.php on line 16
+[27-Jun-2022 15:15:39 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in /home/factudata/public_html/clases/global_clases_conexionbdmysql.php:16
+Stack trace:
+#0 /home/factudata/public_html/clases/global_clases_SAT.php(6): DB->__construct()
+#1 /home/factudata/public_html/includes/login.php(9): SAT->login(Array)
+#2 /home/factudata/public_html/gui/index.php(4): include_once('/home/factudata...')
+#3 {main}
+  thrown in /home/factudata/public_html/clases/global_clases_conexionbdmysql.php on line 16
+[27-Jun-2022 15:21:37 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/inicial.php on line 8
+[27-Jun-2022 15:22:57 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/inicial.php on line 8
+[27-Jun-2022 15:23:03 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/inicial.php on line 8
+[27-Jun-2022 15:23:34 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/inicial.php on line 8
+[27-Jun-2022 15:23:36 UTC] PHP Warning:  Cannot use a scalar value as an array in /home/factudata/public_html/clases/global_clases_SAT.php on line 395
+[27-Jun-2022 15:23:42 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/inicial.php on line 8
+[27-Jun-2022 15:23:43 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/subir_archivo.php on line 8
+[27-Jun-2022 15:23:46 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/inicial.php on line 8
+[27-Jun-2022 15:23:50 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/inicial.php on line 8
+[27-Jun-2022 15:23:55 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/inicial.php on line 8
+[27-Jun-2022 15:23:56 UTC] PHP Warning:  Cannot use a scalar value as an array in /home/factudata/public_html/clases/global_clases_SAT.php on line 395
+[27-Jun-2022 15:24:00 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/inicial.php on line 8
+[27-Jun-2022 15:32:09 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/inicial.php on line 8
+[27-Jun-2022 15:32:11 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/inicial.php on line 8
+[27-Jun-2022 15:34:01 UTC] PHP Warning:  Cannot use a scalar value as an array in /home/factudata/public_html/clases/global_clases_SAT.php on line 395
+[27-Jun-2022 15:34:15 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/subir_archivo.php on line 8
+[27-Jun-2022 15:34:55 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/ingresaDatos.php on line 7
+[27-Jun-2022 15:35:13 UTC] PHP Warning:  Cannot use a scalar value as an array in /home/factudata/public_html/clases/global_clases_SAT.php on line 395
+[27-Jun-2022 15:36:15 UTC] PHP Warning:  Cannot use a scalar value as an array in /home/factudata/public_html/clases/global_clases_SAT.php on line 395
+[27-Jun-2022 15:36:29 UTC] PHP Warning:  Cannot use a scalar value as an array in /home/factudata/public_html/clases/global_clases_SAT.php on line 395
+[27-Jun-2022 15:54:01 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/factudata/public_html/clases/global_clases_conexionbdmysql.php on line 128
+[27-Jun-2022 15:56:44 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/factudata/public_html/clases/global_clases_conexionbdmysql.php on line 128
+[27-Jun-2022 15:58:21 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/factudata/public_html/clases/global_clases_conexionbdmysql.php on line 128
+[27-Jun-2022 15:59:12 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/subir_archivo.php on line 8
+[27-Jun-2022 15:59:12 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/factudata/public_html/clases/global_clases_conexionbdmysql.php on line 128
+[27-Jun-2022 15:59:22 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/subir_archivo.php on line 8
+[27-Jun-2022 15:59:31 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/subir_archivo.php on line 8
+[27-Jun-2022 15:59:31 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/factudata/public_html/clases/global_clases_conexionbdmysql.php on line 128
+[27-Jun-2022 16:00:31 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/subir_archivo.php on line 8
+[27-Jun-2022 16:00:31 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/factudata/public_html/clases/global_clases_conexionbdmysql.php on line 128
+[27-Jun-2022 16:10:45 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/subir_archivo.php on line 8
+[27-Jun-2022 16:10:45 UTC] PHP Notice:  Undefined property: SAT::$guardaArchivo in /home/factudata/public_html/includes/subir_archivo.php on line 49
+[27-Jun-2022 16:11:16 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/subir_archivo.php on line 8
+[27-Jun-2022 16:11:22 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/subir_archivo.php on line 8
+[27-Jun-2022 16:14:36 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/subir_archivo.php on line 8
+[27-Jun-2022 16:17:19 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/subir_archivo.php on line 8
+[27-Jun-2022 16:17:33 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/subir_archivo.php on line 8
+[27-Jun-2022 16:17:33 UTC] PHP Warning:  mysqli_close(): Couldn't fetch mysqli in /home/factudata/public_html/clases/global_clases_conexionbdmysql.php on line 128
+[27-Jun-2022 16:18:23 UTC] PHP Notice:  session_start(): A session had already been started - ignoring in /home/factudata/public_html/includes/subir_archivo.php on line 8
+[27-Jun-2022 18:23:41 UTC] PHP Notice:  Undefined index: id_usuario in /home/factudata/public_html/includes/menu principal.php on line 66
+[27-Jun-2022 18:23:41 UTC] PHP Notice:  Undefined index: id_usuario in /home/factudata/public_html/includes/menu principal.php on line 115
+[27-Jun-2022 18:23:41 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/factudata/public_html/includes/menu principal.php:77) in /home/factudata/public_html/includes/descarga.php on line 7
+[27-Jun-2022 18:23:41 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/factudata/public_html/includes/descarga.php on line 242
+[27-Jun-2022 18:23:41 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/factudata/public_html/includes/descarga.php on line 244
+[27-Jun-2022 18:23:41 UTC] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in /home/factudata/public_html/includes/descarga.php on line 244
+[02-Jul-2022 01:28:30 UTC] PHP Notice:  Undefined index: id_usuario in /home/factudata/public_html/includes/menu principal.php on line 66
+[02-Jul-2022 01:28:30 UTC] PHP Notice:  Undefined index: id_usuario in /home/factudata/public_html/includes/menu principal.php on line 115
+[02-Jul-2022 02:20:56 UTC] PHP Notice:  Undefined index: id_usuario in /home/factudata/public_html/includes/menu principal.php on line 66
+[02-Jul-2022 02:20:56 UTC] PHP Notice:  Undefined index: id_usuario in /home/factudata/public_html/includes/menu principal.php on line 115
+[02-Jul-2022 02:40:32 UTC] PHP Notice:  Undefined index: id_usuario in /home/factudata/public_html/includes/menu principal.php on line 66
+[02-Jul-2022 02:40:32 UTC] PHP Notice:  Undefined index: id_usuario in /home/factudata/public_html/includes/menu principal.php on line 115
+[10-Jul-2022 18:16:49 UTC] PHP Notice:  Undefined index: id_usuario in /home/factudata/public_html/includes/menu principal.php on line 66
+[10-Jul-2022 18:16:49 UTC] PHP Notice:  Undefined index: id_usuario in /home/factudata/public_html/includes/menu principal.php on line 115
+[10-Jul-2022 18:16:49 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/factudata/public_html/includes/menu principal.php:77) in /home/factudata/public_html/includes/genera_liga.php on line 7
+[10-Jul-2022 18:16:49 UTC] PHP Notice:  Undefined index: id_usuario in /home/factudata/public_html/includes/genera_liga.php on line 37
+[10-Jul-2022 18:17:08 UTC] PHP Notice:  Undefined index: id_usuario in /home/factudata/public_html/includes/menu principal.php on line 66
+[10-Jul-2022 18:17:08 UTC] PHP Notice:  Undefined index: id_usuario in /home/factudata/public_html/includes/menu principal.php on line 115
+[10-Jul-2022 18:17:08 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/factudata/public_html/includes/menu principal.php:77) in /home/factudata/public_html/includes/genera_liga.php on line 7
+[10-Jul-2022 18:17:08 UTC] PHP Notice:  Undefined index: id_usuario in /home/factudata/public_html/includes/genera_liga.php on line 37
