@@ -120,7 +120,7 @@ if (!isset($_SESSION['contador'])) {
                                  });*/
 
                                 $.ajax({
-                                    url: '../ajax/alta_escanear_sat2.php',
+                                    url: '../ajax/alta_escanear_sat.php',
                                     dataType: "text",
                                     data: {
                                         'liga': decodedText

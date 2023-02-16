@@ -78,10 +78,9 @@ class DB
 		return ($rr);
 	}
 
-	function &InsertGetId($query)
+	function &InsertGetId()
 	{
 
-		$result = $this->conn->query($query);
 		$error = $this->conn->connect_errno;
 
 		$rr = $this->conn->insert_id;
@@ -120,4 +119,6 @@ class DB
 	{
 		mysqli_close($this->conn);
 	}
+
+
 }
