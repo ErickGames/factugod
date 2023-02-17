@@ -113,11 +113,11 @@ if (!isset($_SESSION['contador'])) {
                                 // do something when code is read
                                 //alert('codigo leido Code matched = ' + decodedText + ', ' + decodedResult);
 
-                                /* html5QrCode.stop().then((ignore) => {
+                                 html5QrCode.stop().then((ignore) => {
                                  // QR Code scanning is stopped.
                                  }).catch((err) => {
                                  // Stop failed, handle it.
-                                 });*/
+                                 });
 
                                 $.ajax({
                                     url: '../ajax/alta_escanear_sat.php',
