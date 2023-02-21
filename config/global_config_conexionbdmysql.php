@@ -7,5 +7,5 @@ $dbname = "factudata_datosSAT";
 // $dbserver = "localhost";
 // $dbuser = "factudata_datosSAT";
 // $passwd = "datos@SAT";
-// $dbname = "factudata_datosSAT";
+// $dbname = "factudata_datossat";
 ?>

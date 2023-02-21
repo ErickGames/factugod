@@ -92,7 +92,7 @@ class SAT
         $sql = "insert into datosSAT(id_cliente,liga,fecha) values({$_SESSION['id_usuario']},'{$post['liga']}',now())";
         $db->Insert($sql);
 
-         ////////////////////////
+        ////////////////////////
         ///INSERT AL ESCANEAR///
         ////////////////////////
 
@@ -190,7 +190,6 @@ class SAT
                                 , idCIF='" . str_replace("'", "''", $idcif22) . "'
                                 where id_datosSAT=" . $row['id_datosSAT'];
                     $db->Insert($sql);
-
                 } else {
 
                     $sql = "update datosSAT set html='" . str_replace("'", "''", $html) . "' where id_datosSAT=" . $row['id_datosSAT'];
@@ -317,7 +316,6 @@ class SAT
                                 , idCIF='" . str_replace("'", "''", $idcif22) . "'
                                 where id_datosSAT=" . $row['id_datosSAT'];
                     $db->Insert($sql);
-
                 } else {
 
                     $sql = "update datosSAT set html='" . str_replace("'", "''", $html) . "' where id_datosSAT=" . $row['id_datosSAT'];
@@ -914,5 +912,68 @@ class SAT
         $db->close();
 
         return 'La información se guardo correctamente, con el registro con id=' . $datos[0]['x'];
+    }
+
+    function saberPaquete()
+    {
+        $db = new DB();
+        $sql = "select paquete from paquete where id_clinete=" . $_SESSION['id_usuario'] . "";
+        $datos = $db->Ejecuta($sql);
+        $db->close();
+
+        if ($datos == "1") {
+            $paquete = "Sin paquete";
+        }
+
+        if ($datos == "2") {
+            $db = new DB();
+            $sql = "select paquete from paquete where id_cliente=" . $_SESSION['id_usuario'] . "";
+            $datos = $db->Ejecuta($sql);
+            $db->close();
+
+            $paquete = "PYME";
+        }
+
+        if ($datos == "3") {
+            $paquete = "ERP";
+        }
+
+        return $paquete;
+    }
+
+    function rfc_rest()
+    {
+
+        $db = new DB();
+        $sql = "select paquete from paquete where id_cliente=" . $_SESSION['id_usuario'] . "";
+        $datos = $db->Ejecuta($sql);
+        $db->close();
+
+        if ($datos[0]['paquete'] == 1) {
+
+            $db = new DB();
+            $sql = "select ifnull(sum(monto) - (select count(*)*" . $GLOBALS['valor'] . " from datosSAT where id_cliente=" . $_SESSION['id_usuario'] . " and codigo_postal is not null),0)monto
+                from pagos
+                where id_cliente=" . $_SESSION['id_usuario'] . "
+                        and status='approved'";
+            $datos = $db->Ejecuta($sql);
+            $db->close();
+
+            if (!isset($datos[0]['monto'])) {
+
+                return 0;
+            }
+
+            return "Sin paquete <br>  $" . $datos[0]['monto'];
+
+           
+        } else {
+            $db = new DB();
+            $sql = "select rfcs_restantes from paquete where id_cliente=" . $_SESSION['id_usuario'] . "";
+            $datos2 = $db->Ejecuta($sql);
+            $db->close();
+
+            return $datos2[0]['rfcs_restantes'];
+        }
     }
 }

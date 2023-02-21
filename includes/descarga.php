@@ -12,6 +12,7 @@ $datos = new SAT();
 
 $datos->actualizaPago();
 $saldo = $datos->saldo();
+$restantes = $datos->rfc_rest();
 $sinProcesar = $datos->sinProcesar();
 $procesados = $datos->procesados();
 $compras = $datos->compras();
@@ -76,6 +77,7 @@ if ($saldoPorocesar > $sinProcesar) {
 
     var paraProcesar = '<?php echo $saldoPorocesar; ?>';
     var registrosSinProcesar = '<?php echo $sinProcesar; ?>';
+    var restantes = '<?php echo $restantes; ?>';
 
     function validar() {
 
@@ -165,9 +167,11 @@ if ($saldoPorocesar > $sinProcesar) {
 
         <div class="container text-center">
             <div class="mb-3 row mt-5">
-                <h5 style="color:#442a7a; font-weight:bolder">Saldo disponible <span style="color:green">$<?php echo number_format($saldo, 2, '.', ','); ?></span></h5>
+                <h5 style="color:#442a7a; font-weight:bolder">RFCS disponibles: <span style="color:green"><?php echo $restantes ?></span></h5>
+
+                <!-- <h5 style="color:#442a7a; font-weight:bolder">Saldo disponible <span style="color:green">$<?php echo number_format($saldo, 2, '.', ','); ?></span></h5> -->
                 <div class="col-sm-12">
-                    <h5 style="color: #442a7a;font-weight: 400;">Equivalente a <?php echo $saldoPorocesar; ?> Registros Para Procesar</h5>
+                    <!-- <h5 style="color: #442a7a;font-weight: 400;">Equivalente a <?php echo $saldoPorocesar; ?> Registros Para Procesar</h5> -->
                 </div>
             </div>
 
