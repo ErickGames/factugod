@@ -12,6 +12,9 @@ $datos = new SAT();
 $datos->actualizaPago();
 $saldo = $datos->saldo();
 $recargas = $datos->recargas();
+$saber = $datos->saberPaquete();
+
+$paquete = $datos->datosPaquete();
 ?>
 <script>
     $(document).ajaxStart(function() {
@@ -80,10 +83,34 @@ $(document).ready(function(){
         <h3 style="text-align:left; margin-left:40px; margin-top:60px; color: #442a7a">Plan Actual:</h3>
 
         <div style="border-style: solid; border-color:#442a7a; border-width:1px; margin:20px">
-            <h5 style="color: black; text-align:center; margin-top:50px">Saldo disponible:</h5>
+            <h5 style="color: black; text-align:center; margin-top:50px">Información:</h5>
 
-            <h1 style="color: #0FE834; text-align:center;">$<?php echo number_format($saldo, 2, '.', ','); ?></h1>
-            <h5 style="color: black; text-align:center;">Equivalente a <?php echo intval($saldo / $GLOBALS['valor']); ?> Registros Para Procesar</h5>
+            <h1 style="color: #0FE834; text-align:center;"><?php echo $saber ?></h1>
+
+            <h1 style="color: #0FE834; text-align:center;"><?php if ($saber == "Sin paquete") { ?>$<?php echo number_format($saldo, 2, '.', ',');} ?> </h1>
+            <h5 style="color: black; text-align:center;"><?php if ($saber == "Sin paquete") { ?>Equivalente a <?php echo intval($saldo / $GLOBALS['valor']); ?> Registros Para Procesar <?php } ?></h5>
+
+            <?php if ($saber !== "Sin paquete") { ?>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5 style="color:#442a7a; font-weight:bold; text-align:left; margin-top:50px">Tipo de Actualización: <span style="color:black"><?php echo $paquete[0]['tip_actualizacion'] ?></span></h5>
+
+                        <h5 style="color:#442a7a; font-weight:bold; text-align:left; margin-top:50px">Próxima Actualización: <span style="color:black"><?php echo $paquete[0]['prox_actu'] ?></span></h5>
+
+                        <h5 style="color:#442a7a; font-weight:bold; text-align:left; margin-top:50px">Contratación: <span style="color:black"><?php echo $paquete[0]['contratacion'] ?></span></h5>
+
+                    </div>
+                    <div class="col-md-6">
+                        <h5 style="color:#442a7a; font-weight:bold; text-align:left; margin-top:50px">RFCs Mensuales: <span style="color:black"><?php echo $paquete[0]['rfcs_mensuales'] ?></span></h5>
+                        
+                        <h5 style="color:#442a7a; font-weight:bold; text-align:left; margin-top:50px">RFCs Restantes: <span style="color:black"><?php echo $paquete[0]['rfcs_restantes'] ?></span></h5>
+
+                        <h5 style="color:#442a7a; font-weight:bold; text-align:left; margin-top:50px">Vigencia: <span style="color:black"><?php echo $paquete[0]['vigencia'] ?></span></h5>
+                    </div>
+                </div>
+
+            <?php } ?>
 
             <div class="row g-5">
                 <div class="col-md-2">

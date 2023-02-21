@@ -917,25 +917,20 @@ class SAT
     function saberPaquete()
     {
         $db = new DB();
-        $sql = "select paquete from paquete where id_clinete=" . $_SESSION['id_usuario'] . "";
+        $sql = "select paquete from paquete where id_cliente=" . $_SESSION['id_usuario'] . "";
         $datos = $db->Ejecuta($sql);
         $db->close();
 
-        if ($datos == "1") {
+        if ($datos[0]['paquete'] == 1) {
             $paquete = "Sin paquete";
         }
 
-        if ($datos == "2") {
-            $db = new DB();
-            $sql = "select paquete from paquete where id_cliente=" . $_SESSION['id_usuario'] . "";
-            $datos = $db->Ejecuta($sql);
-            $db->close();
-
-            $paquete = "PYME";
+        if ($datos[0]['paquete'] == 2) {
+            $paquete = "PAQUETE PYME";
         }
 
-        if ($datos == "3") {
-            $paquete = "ERP";
+        if ($datos[0]['paquete'] == 3) {
+            $paquete = "PAQUETE ERP";
         }
 
         return $paquete;
@@ -976,4 +971,14 @@ class SAT
             return $datos2[0]['rfcs_restantes'];
         }
     }
+
+    function datosPaquete(){
+        $db = new DB();
+        $sql = "select * from paquete where id_cliente=" . $_SESSION['id_usuario'] . "";
+        $datos = $db->Ejecuta($sql);
+        $db->close();
+
+        return $datos;
+    }
+
 }
