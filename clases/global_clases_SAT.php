@@ -1,4 +1,7 @@
 <?php
+require($_SERVER['DOCUMENT_ROOT'] . '/factugod/vendor/autoload.php');
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
 session_start();
 class SAT
 {
@@ -20,13 +23,40 @@ class SAT
             $_SESSION['rfc'] = $datos[0]['rfc'];
             $_SESSION['razonsocial'] = $datos[0]['razonsocial'];
             $_SESSION['correo'] = $datos[0]['correo'];
-            $msg = $datos[0]['id_cliente'];
+            $user_id = $datos[0]['id_cliente'];
+            $pwd = $datos[0]['rfc'];
+            // Generar api token para posteriormente proteger las rutas de constancias, entre otras necesarias
+            $jwt = $this->generar_api_token($user_id, $pwd);
+            $msg = $jwt;
         } else {
             http_response_code(500);
             $msg = 'No se encontraron datos, favor de revisar la información';
         }
 
         return $msg;
+    }
+    
+    function generar_api_token($user_id, $pwd)
+    {
+        try {
+            // Establecer lo que nos va a regresar como respuesta al generar el api token
+            $payload = [
+                'iss' => 'https://factudata.com.mx/', // Quien lo genera
+                'aud' => 'https://factudata.com.mx/', // Ruta de la pagina
+                'iat' => time(), // Hora en la que fue generado (Con esto podemos validar si el token todavia sigue vigente haciendo la diferencia entre (exp - iat))
+                'exp' => time() * 3600, // Tiempo de expiracion
+                'user_id' => $user_id // Usuario que lo genero
+            ];
+            /* Encriptar nuestra key, si queremos hacer una peticion a una ruta protegida tendremos que mandar este token como Authorization header, si se desencripta
+            y hace match con la contraseña del usuario nos dejara acceder a la data, de lo contario nos regresara un 403 - Not authorized */
+            $jwt = [
+                'userId' => $user_id,
+                'token' => JWT::encode($payload, $pwd, 'HS256')
+            ];
+        } catch (PDOException $e) {
+            $jwt = $e->getMessage();
+        }
+        return $jwt;
     }
 
     function registrar_datos_SAT($post)
@@ -960,8 +990,6 @@ class SAT
             }
 
             return "Sin paquete <br>  $" . $datos[0]['monto'];
-
-           
         } else {
             $db = new DB();
             $sql = "select rfcs_restantes from paquete where id_cliente=" . $_SESSION['id_usuario'] . "";
