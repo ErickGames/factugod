@@ -93,26 +93,26 @@ $(document).ready(function(){
             <?php if ($saber !== "Sin paquete") { ?>
 
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 px-5">
                         <h5 style="color:#442a7a; font-weight:bold; text-align:left; margin-top:50px">Tipo de Actualización: <span style="color:black"><?php echo $paquete[0]['tip_actualizacion'] ?></span></h5>
 
-                        <h5 style="color:#442a7a; font-weight:bold; text-align:left; margin-top:50px">Próxima Actualización: <span style="color:black"><?php echo $paquete[0]['prox_actu'] ?></span></h5>
+                        <h5 style="color:#442a7a; font-weight:bold; text-align:left; margin-top:50px">Próxima Actualización: <span style="color:black"><?php echo date('d / M / Y', strtotime( $paquete[0]['prox_actu']))  ?></span></h5>
 
-                        <h5 style="color:#442a7a; font-weight:bold; text-align:left; margin-top:50px">Contratación: <span style="color:black"><?php echo $paquete[0]['contratacion'] ?></span></h5>
+                        <h5 style="color:#442a7a; font-weight:bold; text-align:left; margin-top:50px">Contratación: <span style="color:black"><?php echo date('d / M / Y', strtotime( $paquete[0]['contratacion']))  ?></span></h5>
 
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 px-5">
                         <h5 style="color:#442a7a; font-weight:bold; text-align:left; margin-top:50px">RFCs Mensuales: <span style="color:black"><?php echo $paquete[0]['rfcs_mensuales'] ?></span></h5>
                         
                         <h5 style="color:#442a7a; font-weight:bold; text-align:left; margin-top:50px">RFCs Restantes: <span style="color:black"><?php echo $paquete[0]['rfcs_restantes'] ?></span></h5>
 
-                        <h5 style="color:#442a7a; font-weight:bold; text-align:left; margin-top:50px">Vigencia: <span style="color:black"><?php echo $paquete[0]['vigencia'] ?></span></h5>
+                        <h5 style="color:#442a7a; font-weight:bold; text-align:left; margin-top:50px">Vigencia: <span style="color:black"><?php echo date('d / M / Y', strtotime( $paquete[0]['vigencia']))  ?></span></h5>
                     </div>
                 </div>
 
             <?php } ?>
 
-            <div class="row g-5">
+            <div class="row g-5 mt-4">
                 <div class="col-md-2">
                 </div>
                 <div class="col-md-8" style='text-align:left;'>
