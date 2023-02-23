@@ -1,8 +1,8 @@
 <?php
 $dbserver = "localhost";
-$dbuser = "root";
-$passwd = "";
-$dbname = "factudata_datosSAT";
+$dbuser = "mario";
+$passwd = "Mario123.$";
+$dbname = "factudata_datossat";
 
 // $dbserver = "localhost";
 // $dbuser = "factudata_datosSAT";
