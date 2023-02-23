@@ -1,5 +1,6 @@
 <?php
-require($_SERVER['DOCUMENT_ROOT'] . '/factugod/vendor/autoload.php');
+// require($_SERVER['DOCUMENT_ROOT'] . '/factugod/vendor/autoload.php');
+require($_SERVER['DOCUMENT_ROOT'] . '/factu/vendor/autoload.php');
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 session_start();
