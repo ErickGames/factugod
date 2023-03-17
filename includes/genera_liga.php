@@ -127,7 +127,7 @@ if (!isset($_SESSION['id_usuario'])) {
         <a href="" id='hrfLink' style="margin-left: 50px; text-align:center"></a>
 
     </div>
-
+sadsad
 </div>
 
 <!-- <div style="background-color:aliceblue ;"">

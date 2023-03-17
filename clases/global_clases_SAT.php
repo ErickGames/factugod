@@ -1,8 +1,11 @@
 <?php
 // require($_SERVER['DOCUMENT_ROOT'] . '/factugod/vendor/autoload.php');
-require($_SERVER['DOCUMENT_ROOT'] . '/factu/vendor/autoload.php');
+// require($_SERVER['DOCUMENT_ROOT'] . '/factu/vendor/autoload.php');
+require '../vendor/autoload.php';
+
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
+
 session_start();
 class SAT
 {
@@ -36,7 +39,7 @@ class SAT
 
         return $msg;
     }
-    
+
     function generar_api_token($user_id, $pwd)
     {
         try {
@@ -52,6 +55,7 @@ class SAT
             y hace match con la contraseña del usuario nos dejara acceder a la data, de lo contario nos regresara un 403 - Not authorized */
             $jwt = [
                 'userId' => $user_id,
+                'rfc' => $pwd,
                 'token' => JWT::encode($payload, $pwd, 'HS256')
             ];
         } catch (PDOException $e) {
@@ -1001,7 +1005,8 @@ class SAT
         }
     }
 
-    function datosPaquete(){
+    function datosPaquete()
+    {
         $db = new DB();
         $sql = "select * from paquete where id_cliente=" . $_SESSION['id_usuario'] . "";
         $datos = $db->Ejecuta($sql);
@@ -1009,5 +1014,4 @@ class SAT
 
         return $datos;
     }
-
 }

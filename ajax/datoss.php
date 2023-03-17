@@ -1,7 +1,8 @@
 <?php
 include_once("../config/global_config_includes.php");
 // require($_SERVER['DOCUMENT_ROOT'] . '/factugod/vendor/autoload.php');
-require($_SERVER['DOCUMENT_ROOT'] . '/factu/vendor/autoload.php');
+// require($_SERVER['DOCUMENT_ROOT'] . '/factu/vendor/autoload.php');
+require '../vendor/autoload.php';
 
 
 use Firebase\JWT\JWT;

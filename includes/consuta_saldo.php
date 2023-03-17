@@ -163,6 +163,7 @@ $(document).ready(function(){
                     <?php
 
                     } else {
+                        
                     ?>
                         <div class="row g-5">
                             <div class="col-md-2">
