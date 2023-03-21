@@ -38,6 +38,7 @@ if (!isset($_SESSION['id_usuario'])) {
 
     function generaLiga() {
 
+        document.getElementById('modalito').classList.remove('ocultar123');
         $("#hrfLink").attr("href", './gui_ingresa_datos.php?d=' + x);
         $("#hrfLink").html("<h5>Liga para Colaboradores</h5>");
 
@@ -55,15 +56,16 @@ if (!isset($_SESSION['id_usuario'])) {
         }
     }
 
-    #div1{
+    #div1 {
         min-height: 100vh;
     }
 
     @media (max-width:766px) {
-        #div1{
+        #div1 {
             min-height: auto;
+        }
     }
-    }
+
 </style>
 
 
@@ -120,14 +122,54 @@ if (!isset($_SESSION['id_usuario'])) {
         </div>
 
         <div class="d-flex justify-content-center mt-3">
-            <input type="button" class="btn btn-info" value="Generar LINK" name="btnGeneraLiga" id="btnGeneraLiga" style="background-color:#442a7a; border-color:#442a7a; color:white" />
+            <input type="button" class="btn btn-info" value="Generar LINK" name="btnGeneraLiga" id="btnGeneraLiga" style="background-color:#442a7a; border-color:#442a7a; color:white" data-bs-toggle="modal" data-bs-target="#modalId" />
             <a name="" id="" class="btn btn-primary" href="../imagenes/guiarapidadmin.pdf" download role="button" style="background-color:aqua ; border-color:aqua; color:white; margin-left:15px">Descargar Guía de Uso</a>
         </div>
         <br>
-        <a href="" id='hrfLink' style="margin-left: 50px; text-align:center"></a>
+        <div id="modalito" class="ocultar123">
+            <!-- Modal -->
+            <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <!-- <div class="modal-header">
+                            <h5 class="modal-title" id="modalTitleId" style="color:black">Liga para colaboradores</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div> -->
+                        <div class="modal-body">
+                            <div class="container-fluid">
+                                <br>
+                                <img src="../imagenes/Logo_header2black.png" alt="asda" style="width:50%; display:block; margin:auto">
+                                <br>
+                                <h4 style="color:black; font-weight:bold; text-align:center">Copia y pega este link.</h4>
+                                <br>
+                                <p style="color:black;  text-align:center">Compartelo con tus colaboradores para que generen el registro de sus datos. <br>Este link es exclusivo para el uso del personal de tu empresa</p>
+                                <br>
+                                <a href="" id='hrfLink' style="margin-left: 50px; text-align:center"></a>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Listo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                var modalId = document.getElementById('modalId');
+
+                modalId.addEventListener('show.bs.modal', function(event) {
+                    // Button that triggered the modal
+                    let button = event.relatedTarget;
+                    // Extract info from data-bs-* attributes
+                    let recipient = button.getAttribute('data-bs-whatever');
+
+                    // Use above variables to manipulate the DOM
+                });
+            </script>
+        </div>
 
     </div>
-sadsad
 </div>
 
 <!-- <div style="background-color:aliceblue ;"">
