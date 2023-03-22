@@ -139,56 +139,59 @@ $datos->actualizaPago();
         background-color: transparent;
         border-color: #442a7a;
         border-width: 3px;
-        ;
         border-style: solid;
         color: #442a7a;
         width: 100%;
         height: auto;
         min-height: 110px;
-        border-radius:20px
+        border-radius: 20px
     }
+
     .botones2 {
         background-color: #442a7a;
         border-color: #442a7a;
         border-width: 3px;
-        ;
         border-style: solid;
         color: #442a7a;
         width: 100%;
         height: auto;
         min-height: 110px;
-        color:white;
-        border-radius:20px
-
+        color: white;
+        border-radius: 20px
     }
 
-    .btn-primary:hover , .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary{
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:active,
+    .btn-primary.active,
+    .open>.dropdown-toggle.btn-primary {
         transition: 0.5s;
         box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.7);
         background-color: transparent;
-        color:#442a7a;
+        color: #442a7a;
         transform: scale(1.03);
+        border-color: #442a7a !important;
 
 
     }
-    #div1{
+
+    #div1 {
         min-height: 100vh;
     }
 
     @media (max-width:766px) {
-        #div1{
+        #div1 {
             min-height: auto;
+        }
     }
-    }
-
 </style>
 
 
 <div id="div1" class="row">
 
-    <div class="col-md-3" style=" background: rgb(27, 15, 51); background: linear-gradient(90deg, rgba(27, 15, 51, 1) 0%, rgba(68, 42, 122, 1) 40%); " >
+    <div class="col-md-3" style=" background: rgb(27, 15, 51); background: linear-gradient(90deg, rgba(27, 15, 51, 1) 0%, rgba(68, 42, 122, 1) 40%); ">
         <h1 style="color: white;font-weight: 900; margin-left:20px; text-align:left; margin-top:20px; font-family:sources">¡Bienvenido!</h1>
-        <h5 style="color: white;font-weight: 400; margin-left:20px; text-align:left; font-size:30px; font-family:sources" ><?php echo $_SESSION['razonsocial'] ?></h5>
+        <h5 style="color: white;font-weight: 400; margin-left:20px; text-align:left; font-size:30px; font-family:sources"><?php echo $_SESSION['razonsocial'] ?></h5>
     </div>
 
 
@@ -256,10 +259,55 @@ $datos->actualizaPago();
             <div class="col-md-1"></div>
         </div>
 
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <!-- <div class="modal-header">
+                            <h5 class="modal-title" id="modalTitleId" style="color:black">Liga para colaboradores</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div> -->
+                    <div class="modal-body">
+                        <div class="container-fluid p-4">
+                            <img src="../imagenes/Logo_header2black.png" alt="asda" style="width:50%; display:block; margin:auto">
+                            <br>
+                            <h4 style="color:black; font-weight:bold; text-align:center">Descarga el manual que sea necesario para realizar tu proceso.</h4>
+                            <br>
+                            <p style="color:black;  text-align:center; font-weight:bold">Manual de Administrador <br> <span style="font-weight:initial">carga de múltiples datos o volumen.</span></p>
+
+                            <a href="../imagenes/ManualDeUso.pdf" download="" class="btn btn-bd-secondary" style="width:100%; height:40px; background-color:#2cc1d1; border-color:#2cc1d1; color:white">ADMINISTRADOR</a>
+                            <br>
+                            <br>
+                            <br>
+                            <p style="color:black;  text-align:center; font-weight:bold">Manual del Colaborador <br> <span style="font-weight:initial">Instrucciones para la carga de información por cada persona.</span></p>
+                            <a href="../imagenes/ManualDeColaborador.pdf" download="" class="btn btn-bd-secondary" style="width:100%; height:40px; background-color:#442a7a; border-color:#442a7a; color:white">COLABORADOR</a>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var modalId = document.getElementById('modalId');
+
+            modalId.addEventListener('show.bs.modal', function(event) {
+                // Button that triggered the modal
+                let button = event.relatedTarget;
+                // Extract info from data-bs-* attributes
+                let recipient = button.getAttribute('data-bs-whatever');
+
+                // Use above variables to manipulate the DOM
+            });
+        </script>
+
+
+
         <div class="row" style="margin-top:30px">
             <div class="col-md-1"></div>
             <div class="col-md-5 mt-2">
-            <a class="btn btn-primary botones" href="../imagenes/ManualDeUso.pdf" download="" role="button">
+                <a class="btn btn-primary botones" data-bs-toggle="modal" data-bs-target="#modalId" role="button">
                     <div class="row">
                         <div class="col-9">
                             <h5 style="font-weight:bold;">MANUAL DE USO</h5>
@@ -289,7 +337,7 @@ $datos->actualizaPago();
 
         <br><br><br>
 
-        <p style="text-align:center; color:#442a7a"><span style="text-decoration:underline">2022 factu.data.</span>  Todos los derechos reservados.</p>
+        <p style="text-align:center; color:#442a7a"><span style="text-decoration:underline">2022 factu.data.</span> Todos los derechos reservados.</p>
 
         <br><br>
         <!-- <div class="text-center" style='width: 100%;max-width: 2200px;'>

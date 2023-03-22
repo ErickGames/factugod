@@ -209,7 +209,7 @@ if (isset($btnSubir)) {
             <div class="row mt-3" role="group">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <button type='button' id="btnEscanera" class="btn btn-bd-secondary" style="width:60%; height:60px; background-color:orchid; border-color:orchid; color:white">Escanear codigo QR</button>
+                    <button type='button' id="btnEscanera" class="btn btn-bd-secondary" style="width:60%; height:60px; background-color:blueviolet; border-color:blueviolet; color:white">Escanear codigo QR</button>
                 </div>
                 <div class="col-md-3"></div>
             </div>
@@ -217,7 +217,7 @@ if (isset($btnSubir)) {
             <div class="row mt-3" role="group">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <button type='button' id="btnIngresar" class="btn btn-bd-secondary" style="width:60%; height:60px; background-color:lightskyblue; border-color:lightskyblue; color:white">Ingresas datos</button>
+                    <button type='button' id="btnIngresar" class="btn btn-bd-secondary" style="width:60%; height:60px; background-color:darkturquoise; border-color:darkturquoise; color:white">Ingresas datos</button>
                 </div>
                 <div class="col-md-3"></div>
             </div>
@@ -225,7 +225,7 @@ if (isset($btnSubir)) {
             <div class="row mt-3" role="group">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <button type='button' id="btnSubirZIP" class="btn btn-bd-secondary" style="width:60%; height:60px; background-color:plum; border-color:plum; color:white">Subir Archivo ZIP</button>
+                    <button type='button' id="btnSubirZIP" class="btn btn-bd-secondary" style="width:60%; height:60px; background-color:gray; border-color:gray; color:white">Subir Archivo .PDF</button>
                 </div>
                 <div class="col-md-3"></div>
             </div>
@@ -313,7 +313,7 @@ if (isset($btnSubir)) {
             <div class="row mt-5 mb-5" role="group">
                 <div class="col-md-4 col-xs-0"></div>
                 <div class="col-md-4">
-                    <button type='button' id="btnSubirZIP" class="btn btn-bd-secondary" style="width:100%; height:40px; background-color:#442a7a; border-color:#442a7a; color:white">Descargar guía de uso</button>
+                    <a href="../imagenes/ManualDeColaborador.pdf" download="" class="btn btn-bd-secondary" style="width:100%; height:40px; background-color:#442a7a; border-color:#442a7a; color:white">Descargar guía de uso</a>
                 </div>
                 <div class="col-md-4 col-xs-0"></div>
             </div>
