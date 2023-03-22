@@ -425,6 +425,8 @@ class SAT
         } else {
             echo "<script> alert('EL PDF NO ES VALIDO') </script>";
         }
+
+        $this->procesarInformacion2();
     }
 
     function procesarInformacion($id_cliente)
@@ -595,6 +597,122 @@ class SAT
 
         $sql = "insert into compras (id_cliente,fecha,registros,precio) values(" . $post['id_cliente'] . ",now()," . $post['registros'] . "," . $GLOBALS['valor'] . ");";
         $db->Insert($sql);
+
+        // $db2->close();
+        $db->close();
+        return 'La información se proceso correctamente.';
+    }
+
+    function procesarInformacion2()
+    {
+
+        set_time_limit(0);
+
+        $db = new DB();
+        // $db2 = new DB2();
+        $sql = "select * from datosSAT where html is null";
+        $datos = $db->Ejecuta($sql);
+
+
+        if (count($datos) > 0) {
+
+            for ($i = 0; $i < count($datos); $i++) {
+
+                $row = $datos[$i];
+
+                $html = file_get_contents($row['liga']);
+
+                $rfc = substr($html, strpos($html, 'El RFC: ') + 8, strpos($html, ', tiene asociada la siguiente informac') - strpos($html, 'El RFC: ') - 8);
+
+
+                if ($rfc != '') {
+                    if (strlen($rfc) == 12) {
+
+                        $curp = '';
+                        $nombre = substr($html, strpos($html, 'n Social:') + 66, strpos($html, '</td></tr><tr data-ri=', strpos($html, 'n Social:')) - strpos($html, 'n Social:') - 66);
+                        $apellido_paterno = substr($html, strpos($html, 'de capital:') + 68, strpos($html, '</td></tr><tr data-ri=', strpos($html, 'de capital:')) - strpos($html, 'de capital:') - 68);
+                        $apellido_materno = '';
+                        $fecha_nacimiento = substr($html, strpos($html, 'Fecha de constitución:') + 80, strpos($html, '</td></tr><tr data-ri=', strpos($html, 'Fecha de constitución:')) - strpos($html, 'Fecha de constitución:') - 80);
+                        $isempleado = "0"; //false
+                    }
+
+                    if (strlen($rfc) == 13) {
+                        $curp = substr($html, strpos($html, 'CURP:') + 62, strpos($html, '</td></tr><tr data-ri=', strpos($html, 'CURP:')) - strpos($html, 'CURP:') - 62);
+                        $nombre = substr($html, strpos($html, 'Nombre:') + 64, strpos($html, '</td></tr><tr data-ri=', strpos($html, 'Nombre:')) - strpos($html, 'Nombre:') - 64);
+                        $apellido_paterno = substr($html, strpos($html, 'Apellido Paterno:') + 74, strpos($html, '</td></tr><tr data-ri=', strpos($html, 'Apellido Paterno:')) - strpos($html, 'Apellido Paterno:') - 74);
+                        $apellido_materno = substr($html, strpos($html, 'Apellido Materno:') + 74, strpos($html, '</td></tr><tr data-ri=', strpos($html, 'Apellido Materno:')) - strpos($html, 'Apellido Materno:') - 74);
+                        $fecha_nacimiento = substr($html, strpos($html, 'Fecha Nacimiento:') + 74, strpos($html, '</td></tr><tr data-ri=', strpos($html, 'Fecha Nacimiento:')) - strpos($html, 'Fecha Nacimiento:') - 74);
+                        $isempleado = "1"; //true  
+                    }
+
+                    $fecha_inicio_operaciones = substr($html, strpos($html, 'Fecha de Inicio de operaciones:') + 88, strpos($html, '</td></tr><tr data-ri=', strpos($html, 'Fecha de Inicio de operaciones:')) - strpos($html, 'Fecha de Inicio de operaciones:') - 88);
+                    $situacion_contribuyente = substr($html, strpos($html, 'Situación del contribuyente:') + 86, strpos($html, '</td></tr><tr data-ri=', strpos($html, 'Situación del contribuyente:')) - strpos($html, 'Situación del contribuyente:') - 86);
+                    $fecha_ultimo_cambio = substr($html, strpos($html, 'Fecha del último cambio de situación:') + 96, strpos($html, '</td></tr></tbody>', strpos($html, 'Fecha del último cambio de situación:')) - strpos($html, 'Fecha del último cambio de situación:') - 96);
+                    $entidad_federativa = substr($html, strpos($html, 'Entidad Federativa:') + 76, strpos($html, '</td></tr><tr data-ri=', strpos($html, 'Entidad Federativa:')) - strpos($html, 'Entidad Federativa:') - 76);
+                    $municipio = substr($html, strpos($html, 'Municipio o delegación:') + 81, strpos($html, '</td></tr><tr data-ri=', strpos($html, 'Municipio o delegación:')) - strpos($html, 'Municipio o delegación:') - 81);
+                    $colonia = substr($html, strpos($html, 'Colonia:') + 65, strpos($html, '</td></tr><tr data-ri=', strpos($html, 'Colonia:')) - strpos($html, 'Colonia:') - 65);
+                    $tipo_vialidad = substr($html, strpos($html, 'Tipo de vialidad:') + 74, strpos($html, '</td></tr><tr data-ri=', strpos($html, 'Tipo de vialidad:')) - strpos($html, 'Tipo de vialidad:') - 74);
+                    $nombre_vialidad = substr($html, strpos($html, 'Nombre de la vialidad:') + 79, strpos($html, '</td></tr><tr data-ri=', strpos($html, 'Nombre de la vialidad:')) - strpos($html, 'Nombre de la vialidad:') - 79);
+                    $numero_exterior = substr($html, strpos($html, 'Número exterior:') + 74, strpos($html, '</td></tr><tr data-ri=', strpos($html, 'Número exterior:')) - strpos($html, 'Número exterior:') - 74);
+                    $numero_interior = substr($html, strpos($html, 'Número interior:') + 74, strpos($html, '</td></tr><tr data-ri=', strpos($html, 'Número interior:')) - strpos($html, 'Número interior:') - 74);
+                    $codigo_postal = substr($html, strpos($html, 'CP:') + 60, strpos($html, '</td></tr><tr data-ri=', strpos($html, 'CP:')) - strpos($html, 'CP:') - 60);
+                    $correo_electronico = substr($html, strpos($html, 'Correo electrónico:') + 77, strpos($html, '</td></tr><tr data-ri=', strpos($html, 'Correo electrónico:')) - strpos($html, 'Correo electrónico:') - 77);
+                    $AL = substr($html, strpos($html, 'AL:') + 60, strpos($html, '</td></tr></tbody>', strpos($html, 'AL:')) - strpos($html, 'AL:') - 60);
+
+                    $clave_regimen = '';
+                    $t = '';
+                    $inicio = strpos($html, 'Régimen:');
+                    $regimen = substr($html, strpos($html, 'Régimen:') + 66, strpos($html, '</td></tr><tr data-ri=', strpos($html, 'Régimen:')) - strpos($html, 'Régimen:') - 66);
+
+                    $sql = "select clave from cat_regimen where nombre like '%" . str_replace("á", "a", str_replace("é", "e", str_replace("í", "i", str_replace("ó", "o", str_replace("ú", "u", str_replace("Régimen ", "", str_replace("Régimen de ", "", str_replace("Régimen de las ", "", $regimen)))))))) . "%'";
+                    $re = $db->Ejecuta($sql);
+
+                    if (isset($re[0]['clave'])) {
+
+                        $clave_regimen = $re[0]['clave'];
+                    }
+
+                    while (strpos($html, 'Régimen:', $inicio + 5) !== false) {
+
+                        $inicio = strpos($html, 'Régimen:', $inicio + 5);
+
+                        $t = ': ' . substr($html, strpos($html, 'Régimen:', $inicio) + 66, strpos($html, '</td></tr><tr data-ri=', strpos($html, 'Régimen:', $inicio)) - strpos($html, 'Régimen:', $inicio) - 66);
+
+                        $sql = "select clave from cat_regimen where nombre like '%" . str_replace("á", "a", str_replace("é", "e", str_replace("í", "i", str_replace("ó", "o", str_replace("ú", "u", str_replace(": Régimen ", "", str_replace(": Régimen de ", "", str_replace(": Régimen de las ", "", $t)))))))) . "%'";
+                        $re = $db->Ejecuta($sql);
+
+                        if (isset($re[0]['clave'])) {
+
+                            $clave_regimen .= ': ' . $re[0]['clave'];
+                        }
+
+                        $regimen .= $t;
+                    }
+
+                    $idcif2 = strval($row['liga']);
+                    $idcif22 = substr($idcif2, strlen('D3=') + strpos($idcif2, 'D3='), (strlen($idcif2) - strpos($idcif2, "_")) * (-1));
+                    $idcif222 = strval($idcif22);;
+
+
+                    $sql = "update datosSAT set html='" . str_replace("'", "''", $html) . "', rfc='" . str_replace("'", "''", $rfc) . "', curp='" . str_replace("'", "''", $curp) . "', nombre='" . str_replace("'", "''", $nombre) . "', apellido_paterno='" . str_replace("'", "''", $apellido_paterno) . "', apellido_materno='" . str_replace("'", "''", $apellido_materno) . "'
+                                , fecha_nacimiento='" . str_replace("'", "''", $fecha_nacimiento) . "', fecha_inicio_operaciones='" . str_replace("'", "''", $fecha_inicio_operaciones) . "', situacion_contribuyente='" . str_replace("'", "''", $situacion_contribuyente) . "'
+                                , fecha_ultimo_cambio='" . str_replace("'", "''", $fecha_ultimo_cambio) . "', entidad_federativa='" . str_replace("'", "''", $entidad_federativa) . "', municipio='" . str_replace("'", "''", $municipio) . "', colonia='" . str_replace("'", "''", $colonia) . "'
+                                , tipo_vialidad='" . str_replace("'", "''", $tipo_vialidad) . "', nombre_vialidad='" . str_replace("'", "''", $nombre_vialidad) . "', numero_exterior='" . str_replace("'", "''", $numero_exterior) . "', numero_interior='" . str_replace("'", "''", $numero_interior) . "'
+                                , codigo_postal='" . str_replace("'", "''", $codigo_postal) . "', correo_electronico='" . str_replace("'", "''", $correo_electronico) . "', AL='" . str_replace("'", "''", $AL) . "', regimen='" . str_replace("'", "''", $regimen) . "'
+                                , clave_regimen='" . str_replace("'", "''", $clave_regimen) . "', isempleado='" . str_replace("'", "''", $isempleado) . "'
+                                , idCIF='" . str_replace("'", "''", $idcif222) . "'
+                                where id_datosSAT=" . $row['id_datosSAT'];
+                    $db->Insert($sql);
+                } else {
+
+                    $sql = "update datosSAT set html='" . str_replace("'", "''", $html) . "' where id_datosSAT=" . $row['id_datosSAT'];
+                    $db->Insert($sql);
+                }
+            }
+        }
+
+        // $sql = "insert into compras (id_cliente,fecha,registros,precio) values(" . $post['id_cliente'] . ",now()," . $post['registros'] . "," . $GLOBALS['valor'] . ");";
+        // $db->Insert($sql);
 
         // $db2->close();
         $db->close();

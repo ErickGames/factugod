@@ -46,8 +46,96 @@ if (isset($btnSubir)) {
         } else {
             echo "<script>alert('Ocurrió algún error al subir el fichero. No pudo guardarse.')</script>";
         }
-    } else {
+    } elseif (is_resource($zip)) {
+
+
+        $nombre = date('d m Y G i s');
+
+        $nombre_archivo = '../archivos/' . $_SESSION['id_usuario'] . '/' . $nombre . '.zip';
+
+        if (!is_dir('../archivos')) {
+
+            mkdir('../archivos', 0777);
+        }
+
+        if (!is_dir('../archivos/' . $_SESSION['id_usuario'])) {
+
+            mkdir('../archivos/' . $_SESSION['id_usuario'], 0777);
+        }
+
+        if (move_uploaded_file($_FILES['filArchivo']['tmp_name'],  $nombre_archivo)) {
+
+            $s = new SAT();
+
+            $s->guardaArchivo($nombre, $nombre_archivo, $_FILES['filArchivo']['size'], $_FILES['filArchivo']['type'], $_FILES['filArchivo']['name'], '../archivos/' . $_SESSION['id_usuario'] . '/');
+            echo "<script>alert('El archivo ha sido cargado correctamente.')</script>";
+
+            unset($_FILES);
+        } else {
+            echo "<script>alert('Ocurrió algún error al subir el fichero. No pudo guardarse.')</script>";
+        }
+
+    } elseif (substr($name, -3) == "zip") {
+
+        $nombre = date('d m Y G i s');
+
+        $nombre_archivo = '../archivos/' . $_SESSION['id_usuario'] . '/' . $nombre . '.zip';
+
+        if (!is_dir('../archivos')) {
+
+            mkdir('../archivos', 0777);
+        }
+
+        if (!is_dir('../archivos/' . $_SESSION['id_usuario'])) {
+
+            mkdir('../archivos/' . $_SESSION['id_usuario'], 0777);
+        }
+
+        if (move_uploaded_file($_FILES['filArchivo']['tmp_name'],  $nombre_archivo)) {
+
+            $s = new SAT();
+
+            $s->guardaArchivo($nombre, $nombre_archivo, $_FILES['filArchivo']['size'], $_FILES['filArchivo']['type'], $_FILES['filArchivo']['name'], '../archivos/' . $_SESSION['id_usuario'] . '/');
+            echo "<script>alert('El archivo ha sido cargado correctamente.')</script>";
+
+            unset($_FILES);
+        } else {
+            echo "<script>alert('Ocurrió algún error al subir el fichero. No pudo guardarse.')</script>";
+        }
+        
+    }  elseif ($_FILES['filArchivo']['type'] == "application/pdf") {
+
+        $nombre = date('d m Y G i s');
+
+        $nombre_archivo = '../archivos/' . $_SESSION['id_usuario'] . '/' . $nombre . '.pdf';
+
+        if (!is_dir('../archivos')) {
+
+            mkdir('../archivos', 0777);
+        }
+
+        if (!is_dir('../archivos/' . $_SESSION['id_usuario'])) {
+
+            mkdir('../archivos/' . $_SESSION['id_usuario'], 0777);
+        }
+
+        if (move_uploaded_file($_FILES['filArchivo']['tmp_name'],  $nombre_archivo)) {
+
+            $s = new SAT();
+
+            $s->guardaArchivo($nombre, $nombre_archivo, $_FILES['filArchivo']['size'], $_FILES['filArchivo']['type'], $_FILES['filArchivo']['name'], '../archivos/' . $_SESSION['id_usuario'] . '/');
+            echo "<script>alert('El archivo ha sido cargado correctamente.')</script>";
+
+            unset($_FILES);
+        } else {
+            echo "<script>alert('Ocurrió algún error al subir el fichero. No pudo guardarse.')</script>";
+        }
+
+    }else {
         echo "<script>alert('El tipo de archivo no es correcto.')</script>";
+        echo $_FILES['filArchivo'];
+        echo $_FILES['filArchivo']['type'];
+        echo $_FILES['filArchivo']['name'];
     }
 }
 
