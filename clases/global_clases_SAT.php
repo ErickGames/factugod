@@ -118,6 +118,8 @@ class SAT
         $db->Insert($sql);
         $db->close();
 
+        $this->procesarInformacion2();
+
         return "Los datos se guardaron correctamente";
     }
 
@@ -603,7 +605,7 @@ class SAT
         return 'La información se proceso correctamente.';
     }
 
-    function procesarInformacion2()
+    function procesarInformacion2() // PROCESAR TODO
     {
 
         set_time_limit(0);
