@@ -118,8 +118,17 @@ class SAT
         $db->Insert($sql);
         $db->close();
 
-        $this->procesarInformacion2();
+        $res = $this->procesarInformacion2($id_cliente);
 
+        if ($res == "500") {
+            $db = new DB();
+            $sql = "delete from datosSAT where id_cliente='".$id_cliente."' and html is null";
+            $db->Insert($sql);
+            $db->close();
+
+            return "Los datos son incorrectos.";
+        }
+    
         return "Los datos se guardaron correctamente";
     }
 
@@ -428,7 +437,7 @@ class SAT
             echo "<script> alert('EL PDF NO ES VALIDO') </script>";
         }
 
-        $this->procesarInformacion2();
+        $this->procesarInformacion2($_SESSION['id_usuario']);
     }
 
     function procesarInformacion($id_cliente)
@@ -605,14 +614,14 @@ class SAT
         return 'La información se proceso correctamente.';
     }
 
-    function procesarInformacion2() // PROCESAR TODO
+    function procesarInformacion2($id_client) // PROCESAR TODO
     {
 
         set_time_limit(0);
 
         $db = new DB();
         // $db2 = new DB2();
-        $sql = "select * from datosSAT where html is null";
+        $sql = "select * from datosSAT where html is null and id_cliente=". $id_client;
         $datos = $db->Ejecuta($sql);
 
 
@@ -623,8 +632,10 @@ class SAT
                 $row = $datos[$i];
 
                 $html = file_get_contents($row['liga']);
-
+                
                 $rfc = substr($html, strpos($html, 'El RFC: ') + 8, strpos($html, ', tiene asociada la siguiente informac') - strpos($html, 'El RFC: ') - 8);
+
+                if (strpos($rfc,"no se le ha") != false) return "500";
 
 
                 if ($rfc != '') {
